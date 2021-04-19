@@ -23,6 +23,8 @@ spec:
       containers:
       - name: block-pvc-scanner
         image: {{.Values.BlockPvcScanner.image}}
+        imagePullSecrets:
+        - name: {{.Values.BlockPvcScanner.regcreds}}
         ports:
         - containerPort: {{.Values.BlockPvcScanner.containerPort}}
           name: metrics

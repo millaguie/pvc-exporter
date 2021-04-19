@@ -26,7 +26,7 @@ spec:
           name: metrics
       serviceAccountName: pvc-exporter-sa
       imagePullSecrets:
-      - name: {{.Values.regcred}}
+      - name: {{.Values.PodPvcMapping.regcreds}}
 
 ---
 apiVersion: v1
