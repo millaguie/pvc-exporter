@@ -4,6 +4,8 @@
 
 namespace: pvc-exporter
 
+regcred: regcred
+
 PodPvcMapping:
   image: dockerid31415926/pod-pvc-mapping
   pullPolicy: IfNotPresent

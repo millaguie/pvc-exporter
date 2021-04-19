@@ -25,6 +25,9 @@ spec:
         - containerPort: {{.Values.PodPvcMapping.containerPort}}
           name: metrics
       serviceAccountName: pvc-exporter-sa
+      imagePullSecrets:
+      - name: {{.Values.regcred}}
+
 ---
 apiVersion: v1
 kind: Service
