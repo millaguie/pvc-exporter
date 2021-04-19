@@ -21,8 +21,6 @@ spec:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
       containers:
-      imagePullSecrets:
-        - name: {{.Values.BlockPvcScanner.regcreds}}
       - name: block-pvc-scanner
         image: {{.Values.BlockPvcScanner.image}}
         ports:
@@ -42,6 +40,8 @@ spec:
       - name: root-path
         hostPath:
           path: /
+      imagePullSecrets:
+        - name: {{.Values.BlockPvcScanner.regcreds}}
 ---
 apiVersion: v1
 kind: Service
