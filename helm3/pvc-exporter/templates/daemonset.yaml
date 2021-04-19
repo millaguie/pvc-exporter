@@ -21,10 +21,10 @@ spec:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
       containers:
+      imagePullSecrets:
+        - name: {{.Values.BlockPvcScanner.regcreds}}
       - name: block-pvc-scanner
         image: {{.Values.BlockPvcScanner.image}}
-        imagePullSecrets:
-        - name: {{.Values.BlockPvcScanner.regcreds}}
         ports:
         - containerPort: {{.Values.BlockPvcScanner.containerPort}}
           name: metrics
